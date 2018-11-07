@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BioMetrixCore", "BioMetrixCore\BioMetrixCore.csproj", "{8289D5D0-D505-4B81-B6B9-D57D05771F71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{31271386-BEC7-4C78-8A02-BD3716CF64EE}"
+EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup1", "Setup1\Setup1.isproj", "{410834FB-428D-4600-830A-167F80DC4A31}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8289D5D0-D505-4B81-B6B9-D57D05771F71} = {8289D5D0-D505-4B81-B6B9-D57D05771F71}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8289D5D0-D505-4B81-B6B9-D57D05771F71}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{8289D5D0-D505-4B81-B6B9-D57D05771F71}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{8289D5D0-D505-4B81-B6B9-D57D05771F71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8289D5D0-D505-4B81-B6B9-D57D05771F71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8289D5D0-D505-4B81-B6B9-D57D05771F71}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{8289D5D0-D505-4B81-B6B9-D57D05771F71}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{8289D5D0-D505-4B81-B6B9-D57D05771F71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8289D5D0-D505-4B81-B6B9-D57D05771F71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8289D5D0-D505-4B81-B6B9-D57D05771F71}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{8289D5D0-D505-4B81-B6B9-D57D05771F71}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{31271386-BEC7-4C78-8A02-BD3716CF64EE}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{31271386-BEC7-4C78-8A02-BD3716CF64EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31271386-BEC7-4C78-8A02-BD3716CF64EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31271386-BEC7-4C78-8A02-BD3716CF64EE}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{31271386-BEC7-4C78-8A02-BD3716CF64EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31271386-BEC7-4C78-8A02-BD3716CF64EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31271386-BEC7-4C78-8A02-BD3716CF64EE}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{410834FB-428D-4600-830A-167F80DC4A31}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
+		{410834FB-428D-4600-830A-167F80DC4A31}.CD_ROM|Any CPU.Build.0 = CD_ROM
+		{410834FB-428D-4600-830A-167F80DC4A31}.Debug|Any CPU.ActiveCfg = DVD-5
+		{410834FB-428D-4600-830A-167F80DC4A31}.Debug|Any CPU.Build.0 = DVD-5
+		{410834FB-428D-4600-830A-167F80DC4A31}.DVD-5|Any CPU.ActiveCfg = DVD-5
+		{410834FB-428D-4600-830A-167F80DC4A31}.DVD-5|Any CPU.Build.0 = DVD-5
+		{410834FB-428D-4600-830A-167F80DC4A31}.Release|Any CPU.ActiveCfg = SingleImage
+		{410834FB-428D-4600-830A-167F80DC4A31}.Release|Any CPU.Build.0 = SingleImage
+		{410834FB-428D-4600-830A-167F80DC4A31}.SingleImage|Any CPU.ActiveCfg = SingleImage
+		{410834FB-428D-4600-830A-167F80DC4A31}.SingleImage|Any CPU.Build.0 = SingleImage
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

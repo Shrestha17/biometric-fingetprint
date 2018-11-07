@@ -1,0 +1,61 @@
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe.config
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.pdb
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csprojResolveAssemblyReference.cache
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\Interop.zkemkeeper.dll
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.ResolveComReference.cache
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Properties.Resources.resources
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.GenerateResource.Cache
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.exe
+D:\Zktech\ZKTeco Using C#\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.pdb
+D:\BioMetrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe.config
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\Interop.zkemkeeper.dll
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.ResolveComReference.cache
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.exe
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.pdb
+D:\BioMetrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe
+D:\BioMetrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.pdb
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csprojResolveAssemblyReference.cache
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Properties.Resources.resources
+D:\BioMetrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\BioMatrix\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe.config
+C:\Users\User\Desktop\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.ResolveComReference.cache
+C:\Users\User\Desktop\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.exe
+C:\Users\User\Desktop\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.pdb
+C:\Users\User\Desktop\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
+C:\Users\User\Desktop\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
+C:\Users\User\Desktop\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Properties.Resources.resources
+C:\Users\User\Desktop\BioMatrix\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.GenerateResource.Cache
+F:\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe.config
+F:\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe
+F:\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.pdb
+F:\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\Interop.zkemkeeper.dll
+F:\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.ResolveComReference.cache
+F:\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
+F:\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.GetAttendance.resources
+F:\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
+F:\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Properties.Resources.resources
+F:\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.GenerateResource.Cache
+F:\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.exe
+F:\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.pdb
+F:\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.MainFile.MainClass.resources
+F:\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csprojResolveAssemblyReference.cache
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csprojAssemblyReference.cache
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.ResolveComReference.cache
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.GetAttendance.resources
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.MainFile.MainClass.resources
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.Properties.Resources.resources
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.GenerateResource.cache
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.CoreCompileInputs.cache
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.exe
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.pdb
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe.config
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.exe
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\BioMatrix\BioMetrixCore\bin\Debug\BioMetrixCore.pdb
