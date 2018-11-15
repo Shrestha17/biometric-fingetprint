@@ -50,17 +50,15 @@
             this.btnEnableDevice = new System.Windows.Forms.Button();
             this.btnDisableDevice = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.multipleDevice = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGetAllUserID = new System.Windows.Forms.Button();
             this.btnUploadUserInfo = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.lblDeviceInfo = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecords)).BeginInit();
             this.panel1.SuspendLayout();
-            this.multipleDevice.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbxDeviceIP
@@ -70,7 +68,7 @@
             this.tbxDeviceIP.Name = "tbxDeviceIP";
             this.tbxDeviceIP.Size = new System.Drawing.Size(99, 26);
             this.tbxDeviceIP.TabIndex = 0;
-            this.tbxDeviceIP.Text = "192.168.100.201";
+            this.tbxDeviceIP.Text = "192.168.0.101";
             // 
             // label1
             // 
@@ -160,9 +158,9 @@
             // 
             // btnBeep
             // 
-            this.btnBeep.Location = new System.Drawing.Point(369, 3);
+            this.btnBeep.Location = new System.Drawing.Point(314, 3);
             this.btnBeep.Name = "btnBeep";
-            this.btnBeep.Size = new System.Drawing.Size(59, 48);
+            this.btnBeep.Size = new System.Drawing.Size(36, 48);
             this.btnBeep.TabIndex = 5;
             this.btnBeep.Text = "Beep";
             this.btnBeep.UseVisualStyleBackColor = true;
@@ -172,7 +170,7 @@
             // 
             this.btnDownloadFingerPrint.Location = new System.Drawing.Point(3, 3);
             this.btnDownloadFingerPrint.Name = "btnDownloadFingerPrint";
-            this.btnDownloadFingerPrint.Size = new System.Drawing.Size(112, 48);
+            this.btnDownloadFingerPrint.Size = new System.Drawing.Size(88, 48);
             this.btnDownloadFingerPrint.TabIndex = 9;
             this.btnDownloadFingerPrint.Text = "Get All User Info";
             this.btnDownloadFingerPrint.UseVisualStyleBackColor = true;
@@ -180,9 +178,9 @@
             // 
             // btnPullData
             // 
-            this.btnPullData.Location = new System.Drawing.Point(121, 3);
+            this.btnPullData.Location = new System.Drawing.Point(97, 3);
             this.btnPullData.Name = "btnPullData";
-            this.btnPullData.Size = new System.Drawing.Size(80, 48);
+            this.btnPullData.Size = new System.Drawing.Size(67, 48);
             this.btnPullData.TabIndex = 10;
             this.btnPullData.Text = "Get Log Data";
             this.btnPullData.UseVisualStyleBackColor = true;
@@ -227,14 +225,14 @@
             this.dgvRecords.AllowUserToResizeRows = false;
             this.dgvRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecords.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRecords.Location = new System.Drawing.Point(0, 108);
+            this.dgvRecords.Location = new System.Drawing.Point(0, 54);
             this.dgvRecords.Name = "dgvRecords";
-            this.dgvRecords.Size = new System.Drawing.Size(791, 306);
+            this.dgvRecords.Size = new System.Drawing.Size(791, 360);
             this.dgvRecords.TabIndex = 883;
             // 
             // btnPowerOff
             // 
-            this.btnPowerOff.Location = new System.Drawing.Point(647, 3);
+            this.btnPowerOff.Location = new System.Drawing.Point(569, 3);
             this.btnPowerOff.Name = "btnPowerOff";
             this.btnPowerOff.Size = new System.Drawing.Size(65, 48);
             this.btnPowerOff.TabIndex = 885;
@@ -244,7 +242,7 @@
             // 
             // btnRestartDevice
             // 
-            this.btnRestartDevice.Location = new System.Drawing.Point(576, 3);
+            this.btnRestartDevice.Location = new System.Drawing.Point(498, 3);
             this.btnRestartDevice.Name = "btnRestartDevice";
             this.btnRestartDevice.Size = new System.Drawing.Size(65, 48);
             this.btnRestartDevice.TabIndex = 886;
@@ -254,9 +252,9 @@
             // 
             // btnGetDeviceTime
             // 
-            this.btnGetDeviceTime.Location = new System.Drawing.Point(285, 3);
+            this.btnGetDeviceTime.Location = new System.Drawing.Point(248, 3);
             this.btnGetDeviceTime.Name = "btnGetDeviceTime";
-            this.btnGetDeviceTime.Size = new System.Drawing.Size(78, 48);
+            this.btnGetDeviceTime.Size = new System.Drawing.Size(60, 48);
             this.btnGetDeviceTime.TabIndex = 887;
             this.btnGetDeviceTime.Text = "Get Device Time";
             this.btnGetDeviceTime.UseVisualStyleBackColor = true;
@@ -264,7 +262,7 @@
             // 
             // btnEnableDevice
             // 
-            this.btnEnableDevice.Location = new System.Drawing.Point(434, 3);
+            this.btnEnableDevice.Location = new System.Drawing.Point(356, 3);
             this.btnEnableDevice.Name = "btnEnableDevice";
             this.btnEnableDevice.Size = new System.Drawing.Size(65, 48);
             this.btnEnableDevice.TabIndex = 889;
@@ -274,7 +272,7 @@
             // 
             // btnDisableDevice
             // 
-            this.btnDisableDevice.Location = new System.Drawing.Point(505, 3);
+            this.btnDisableDevice.Location = new System.Drawing.Point(427, 3);
             this.btnDisableDevice.Name = "btnDisableDevice";
             this.btnDisableDevice.Size = new System.Drawing.Size(65, 48);
             this.btnDisableDevice.TabIndex = 890;
@@ -288,37 +286,35 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dgvRecords);
-            this.panel1.Controls.Add(this.multipleDevice);
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Location = new System.Drawing.Point(12, 68);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(791, 414);
             this.panel1.TabIndex = 891;
             // 
-            // multipleDevice
+            // flowLayoutPanel1
             // 
-            this.multipleDevice.AutoSize = true;
-            this.multipleDevice.Controls.Add(this.btnDownloadFingerPrint);
-            this.multipleDevice.Controls.Add(this.btnPullData);
-            this.multipleDevice.Controls.Add(this.btnGetAllUserID);
-            this.multipleDevice.Controls.Add(this.btnGetDeviceTime);
-            this.multipleDevice.Controls.Add(this.btnBeep);
-            this.multipleDevice.Controls.Add(this.btnEnableDevice);
-            this.multipleDevice.Controls.Add(this.btnDisableDevice);
-            this.multipleDevice.Controls.Add(this.btnRestartDevice);
-            this.multipleDevice.Controls.Add(this.btnPowerOff);
-            this.multipleDevice.Controls.Add(this.btnUploadUserInfo);
-            this.multipleDevice.Controls.Add(this.button1);
-            this.multipleDevice.Controls.Add(this.button2);
-            this.multipleDevice.Controls.Add(this.button3);
-            this.multipleDevice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.multipleDevice.Location = new System.Drawing.Point(0, 0);
-            this.multipleDevice.Name = "multipleDevice";
-            this.multipleDevice.Size = new System.Drawing.Size(791, 108);
-            this.multipleDevice.TabIndex = 0;
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Controls.Add(this.btnDownloadFingerPrint);
+            this.flowLayoutPanel1.Controls.Add(this.btnPullData);
+            this.flowLayoutPanel1.Controls.Add(this.btnGetAllUserID);
+            this.flowLayoutPanel1.Controls.Add(this.btnGetDeviceTime);
+            this.flowLayoutPanel1.Controls.Add(this.btnBeep);
+            this.flowLayoutPanel1.Controls.Add(this.btnEnableDevice);
+            this.flowLayoutPanel1.Controls.Add(this.btnDisableDevice);
+            this.flowLayoutPanel1.Controls.Add(this.btnRestartDevice);
+            this.flowLayoutPanel1.Controls.Add(this.btnPowerOff);
+            this.flowLayoutPanel1.Controls.Add(this.btnUploadUserInfo);
+            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(791, 54);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // btnGetAllUserID
             // 
-            this.btnGetAllUserID.Location = new System.Drawing.Point(207, 3);
+            this.btnGetAllUserID.Location = new System.Drawing.Point(170, 3);
             this.btnGetAllUserID.Name = "btnGetAllUserID";
             this.btnGetAllUserID.Size = new System.Drawing.Size(72, 48);
             this.btnGetAllUserID.TabIndex = 892;
@@ -328,43 +324,13 @@
             // 
             // btnUploadUserInfo
             // 
-            this.btnUploadUserInfo.Location = new System.Drawing.Point(718, 3);
+            this.btnUploadUserInfo.Location = new System.Drawing.Point(640, 3);
             this.btnUploadUserInfo.Name = "btnUploadUserInfo";
             this.btnUploadUserInfo.Size = new System.Drawing.Size(65, 48);
             this.btnUploadUserInfo.TabIndex = 893;
             this.btnUploadUserInfo.Text = "Upload User Info";
             this.btnUploadUserInfo.UseVisualStyleBackColor = true;
             this.btnUploadUserInfo.Click += new System.EventHandler(this.btnUploadUserInfo_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 57);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 48);
-            this.button1.TabIndex = 894;
-            this.button1.Text = "DB Connect";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(74, 57);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 45);
-            this.button2.TabIndex = 895;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(164, 57);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 45);
-            this.button3.TabIndex = 896;
-            this.button3.Text = "Multiple Device";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // lblDeviceInfo
             // 
@@ -375,6 +341,16 @@
             this.lblDeviceInfo.Size = new System.Drawing.Size(792, 19);
             this.lblDeviceInfo.TabIndex = 892;
             this.lblDeviceInfo.Text = "Device Info : --";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(711, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(65, 48);
+            this.button1.TabIndex = 894;
+            this.button1.Text = "Main Button";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Master
             // 
@@ -396,7 +372,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecords)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.multipleDevice.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -424,13 +400,11 @@
         private System.Windows.Forms.Button btnEnableDevice;
         private System.Windows.Forms.Button btnDisableDevice;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel multipleDevice;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label lblDeviceInfo;
         private System.Windows.Forms.Button btnGetAllUserID;
         private System.Windows.Forms.Button btnUploadUserInfo;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
     }
 }
 

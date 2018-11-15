@@ -20,12 +20,10 @@ namespace BioMetrixCore
             ICollection<UserInfo> lstFPTemplates = new List<UserInfo>();
 
             objZkeeper.ReadAllUserID(machineNumber);
-            //objZkeeper.GetDeviceTime(machineNumber);
             objZkeeper.ReadAllTemplate(machineNumber);
 
             while (objZkeeper.SSR_GetAllUserInfo(machineNumber, out sdwEnrollNumber, out sName, out sPassword, out iPrivilege, out bEnabled))
             {
-               
                 for (idwFingerIndex = 0; idwFingerIndex < 10; idwFingerIndex++)
                 {
                     if (objZkeeper.GetUserTmpExStr(machineNumber, sdwEnrollNumber, idwFingerIndex, out iFlag, out sTmpData, out iTmpLength))
@@ -67,7 +65,7 @@ namespace BioMetrixCore
             objZkeeper.ReadAllGLogData(machineNumber);
 
             while (objZkeeper.SSR_GetGeneralLogData(machineNumber, out dwEnrollNumber1, out dwVerifyMode, out dwInOutMode, out dwYear, out dwMonth, out dwDay, out dwHour, out dwMinute, out dwSecond, ref dwWorkCode))
-                
+
 
             {
                 string inputDate = new DateTime(dwYear, dwMonth, dwDay, dwHour, dwMinute, dwSecond).ToString();

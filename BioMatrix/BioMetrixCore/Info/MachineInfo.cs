@@ -7,7 +7,7 @@ namespace BioMetrixCore
         public int MachineNumber { get; set; }
         public int IndRegID { get; set; }
         public string DateTimeRecord { get; set; }
-        
+
         public DateTime DateOnlyRecord
         {
             get { return DateTime.Parse(DateTime.Parse(DateTimeRecord).ToString("yyyy-MM-dd")); }
