@@ -428,12 +428,17 @@ namespace BioMetrixCore
                         }
                     }
                     int b = bllGetAttendanceData.InsertLatestPullRecord();
+                    DisplayListOutput("Attendance pulled sucessfully");
                     //int hks = 0;
-                }                
+                }
+                else
+                {
+                    DisplayListOutput("No previous pull record!!!");
+                }
             }
             catch (Exception ex)
             {
-                // DisplayListOutput(ex.Message);
+                 DisplayListOutput(ex.Message);
             }
         }
     }
