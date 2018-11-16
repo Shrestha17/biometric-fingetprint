@@ -380,116 +380,121 @@ namespace BioMetrixCore
         private void button1_Click(object sender, EventArgs e)
         {
             //transaction
-            //using (SqlConnection connection1 = new SqlConnection(aps.GetValue("myconnection", typeof(string)).ToString())
-            //{
-            //    connection1.Open();
-
-            //    // Start a local transaction.
-            //    SqlTransaction sqlTran = connection1.BeginTransaction();
-
-            //    // Enlist a command in the current transaction.
-            //    SqlCommand command = connection1.CreateCommand();
-            //    command.Transaction = sqlTran;                
-            //    {
-                try
+            using (SqlConnection connection1 = new SqlConnection(aps.GetValue("myconnection", typeof(string)).ToString()))
             {
-                Connect();
+                connection1.Open();
 
-                ShowStatusBar(string.Empty, true);
+                // Start a local transaction.
+                SqlTransaction sqlTran = connection1.BeginTransaction();
 
-                ICollection<MachineInfo> machineInfoCollection = manipulator.GetLogData(objZkeeper, int.Parse(tbxMachineNumber.Text.Trim()));
-
-                List<MachineInfo> lstMachineInfo = machineInfoCollection.ToList();
-
-                BLLGetAttendanceData bllGetAttendanceData = new BLLGetAttendanceData();
-                DataTable dt = bllGetAttendanceData.GetLastAttendanceLogPull();
-
-                DateTime LastPulledDateTime;
-                DateTime LastPulledDateOnly;
-                var todaysDateTime = DateTime.Now;
-                if (dt.Rows.Count > 0)
+                // Enlist a command in the current transaction.
+                SqlCommand command = connection1.CreateCommand();
+                command.Transaction = sqlTran;
                 {
-                    LastPulledDateTime = Convert.ToDateTime(dt.Rows[0]["LastPulledDateTime"]);
-                    LastPulledDateOnly = Convert.ToDateTime(Convert.ToDateTime(dt.Rows[0]["LastPulledDateTime"]).ToShortDateString());
-                }
-                else
-                {
-                    LastPulledDateTime = Convert.ToDateTime(lstMachineInfo.Where(x => Convert.ToDateTime(x.DateTimeRecord) < DateTime.Now).OrderBy(x => x.DateTimeRecord).FirstOrDefault().DateTimeRecord);
-                    LastPulledDateOnly = Convert.ToDateTime(LastPulledDateTime.ToShortDateString());
-                }
 
-                var newAttendanceRecords = lstMachineInfo.Where(x => Convert.ToDateTime(x.DateTimeRecord) >= LastPulledDateTime).ToList();
-
-
-
-                int daysGap = Convert.ToInt32((todaysDateTime - LastPulledDateTime).TotalDays);
-
-                DataTable allUsers = bllGetAttendanceData.GetAllUser();
-
-                for (int i = 0; i <= daysGap; i++)
-                {
-                    var DaywiseAttendanceRecords = newAttendanceRecords.Where(x => Convert.ToDateTime(x.DateOnlyRecord) == LastPulledDateOnly.AddDays(i));
-
-                    if (DaywiseAttendanceRecords.Count() > 0 && allUsers.Rows.Count > 0)
+                    try
                     {
-                        for (int j = 0; j < allUsers.Rows.Count; j++)
+                        Connect();
+
+                        ShowStatusBar(string.Empty, true);
+
+                        ICollection<MachineInfo> machineInfoCollection = manipulator.GetLogData(objZkeeper, int.Parse(tbxMachineNumber.Text.Trim()));
+
+                        List<MachineInfo> lstMachineInfo = machineInfoCollection.ToList();
+
+                        BLLGetAttendanceData bllGetAttendanceData = new BLLGetAttendanceData();
+                        DataTable dt = bllGetAttendanceData.GetLastAttendanceLogPull();
+
+                        DateTime LastPulledDateTime;
+                        DateTime LastPulledDateOnly;
+                        var todaysDateTime = DateTime.Now;
+                        if (dt.Rows.Count > 0)
                         {
-                            int personId = Convert.ToInt32(allUsers.Rows[j]["PersonID"]);
-                            if (i == 0)
-                            {
-                                DataTable logData = bllGetAttendanceData.GetPersonLogDataByDate(personId, LastPulledDateOnly);
-                                if (logData.Rows.Count > 0)
-                                {
-                                    var UserwiseLastAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).LastOrDefault();
-                                    if (UserwiseLastAttendancerecords != null)
-                                    {
-                                        int val = bllGetAttendanceData.UpdateLogData(personId, UserwiseLastAttendancerecords.TimeOnlyRecord);
-                                    }
-                                }
-                                else
-                                {
-                                    //insert
-                                    var UserwiseFirstAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).FirstOrDefault();
-                                    var UserwiseLastAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).LastOrDefault();
-                                    if (UserwiseFirstAttendancerecords != null && UserwiseLastAttendancerecords != null)
-                                    {
-                                        DeviceRecord dr = new DeviceRecord();
-                                        dr.PersonalId = personId;
-                                        dr.AttendanceDate = UserwiseFirstAttendancerecords.DateOnlyRecord;
-                                        dr.AttendanceDateTime = Convert.ToDateTime(UserwiseFirstAttendancerecords.DateTimeRecord);
-                                        dr.InTime = UserwiseFirstAttendancerecords.TimeOnlyRecord;
-                                        dr.OutTime = UserwiseLastAttendancerecords.TimeOnlyRecord;
+                            LastPulledDateTime = Convert.ToDateTime(dt.Rows[0]["LastPulledDateTime"]);
+                            LastPulledDateOnly = Convert.ToDateTime(Convert.ToDateTime(dt.Rows[0]["LastPulledDateTime"]).ToShortDateString());
+                        }
+                        else
+                        {
+                            LastPulledDateTime = Convert.ToDateTime(lstMachineInfo.Where(x => Convert.ToDateTime(x.DateTimeRecord) < DateTime.Now).OrderBy(x => x.DateTimeRecord).FirstOrDefault().DateTimeRecord);
+                            LastPulledDateOnly = Convert.ToDateTime(LastPulledDateTime.ToShortDateString());
+                        }
 
-                                        int a = bllGetAttendanceData.Insert(dr);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                var UserwiseFirstAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).FirstOrDefault();
-                                var UserwiseLastAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).LastOrDefault();
-                                if (UserwiseFirstAttendancerecords != null && UserwiseLastAttendancerecords != null)
-                                {
-                                    DeviceRecord dr = new DeviceRecord();
-                                    dr.PersonalId = personId;
-                                    dr.AttendanceDate = UserwiseFirstAttendancerecords.DateOnlyRecord;
-                                    dr.AttendanceDateTime = Convert.ToDateTime(UserwiseFirstAttendancerecords.DateTimeRecord);
-                                    dr.InTime = UserwiseFirstAttendancerecords.TimeOnlyRecord;
-                                    dr.OutTime = UserwiseLastAttendancerecords.TimeOnlyRecord;
+                        var newAttendanceRecords = lstMachineInfo.Where(x => Convert.ToDateTime(x.DateTimeRecord) >= LastPulledDateTime).ToList();
 
-                                    int a = bllGetAttendanceData.Insert(dr);
+
+
+                        int daysGap = Convert.ToInt32((todaysDateTime - LastPulledDateTime).TotalDays);
+
+                        DataTable allUsers = bllGetAttendanceData.GetAllUser();
+
+                        for (int i = 0; i <= daysGap; i++)
+                        {
+                            var DaywiseAttendanceRecords = newAttendanceRecords.Where(x => Convert.ToDateTime(x.DateOnlyRecord) == LastPulledDateOnly.AddDays(i));
+
+                            if (DaywiseAttendanceRecords.Count() > 0 && allUsers.Rows.Count > 0)
+                            {
+                                for (int j = 0; j < allUsers.Rows.Count; j++)
+                                {
+                                    int personId = Convert.ToInt32(allUsers.Rows[j]["PersonID"]);
+                                    if (i == 0)
+                                    {
+                                        DataTable logData = bllGetAttendanceData.GetPersonLogDataByDate(personId, LastPulledDateOnly);
+                                        if (logData.Rows.Count > 0)
+                                        {
+                                            var UserwiseLastAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).LastOrDefault();
+                                            if (UserwiseLastAttendancerecords != null)
+                                            {
+                                                int val = bllGetAttendanceData.UpdateLogData(personId, UserwiseLastAttendancerecords.TimeOnlyRecord.ToShortTimeString());
+                                            }
+                                        }
+                                        else
+                                        {
+                                            //insert
+                                            var UserwiseFirstAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).FirstOrDefault();
+                                            var UserwiseLastAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).LastOrDefault();
+                                            if (UserwiseFirstAttendancerecords != null && UserwiseLastAttendancerecords != null)
+                                            {
+                                                DeviceRecord dr = new DeviceRecord();
+                                                dr.PersonalId = personId;
+                                                dr.AttendanceDate = UserwiseFirstAttendancerecords.DateOnlyRecord;
+                                                dr.AttendanceDateTime = Convert.ToDateTime(UserwiseFirstAttendancerecords.DateTimeRecord);
+                                                dr.InTime = UserwiseFirstAttendancerecords.TimeOnlyRecord.ToShortTimeString();
+                                                dr.OutTime = UserwiseLastAttendancerecords.TimeOnlyRecord.ToShortTimeString();
+
+                                                int a = bllGetAttendanceData.Insert(dr);
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        var UserwiseFirstAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).FirstOrDefault();
+                                        var UserwiseLastAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).LastOrDefault();
+                                        if (UserwiseFirstAttendancerecords != null && UserwiseLastAttendancerecords != null)
+                                        {
+                                            DeviceRecord dr = new DeviceRecord();
+                                            dr.PersonalId = personId;
+                                            dr.AttendanceDate = UserwiseFirstAttendancerecords.DateOnlyRecord;
+                                            dr.AttendanceDateTime = Convert.ToDateTime(UserwiseFirstAttendancerecords.DateTimeRecord);
+                                            dr.InTime = UserwiseFirstAttendancerecords.TimeOnlyRecord.ToShortTimeString();
+                                            dr.OutTime = UserwiseLastAttendancerecords.TimeOnlyRecord.ToShortTimeString();
+
+                                            int a = bllGetAttendanceData.Insert(dr);
+                                        }
+                                    }
                                 }
                             }
                         }
+                        int b = bllGetAttendanceData.InsertLatestPullRecord(todaysDateTime);
+                        sqlTran.Commit();
+                        DisplayListOutput("Attendance pulled sucessfully");
+
+                    }
+                    catch (Exception ex)
+                    {
+                        sqlTran.Rollback();
+                        DisplayListOutput(ex.Message);
                     }
                 }
-                int b = bllGetAttendanceData.InsertLatestPullRecord(todaysDateTime);
-                DisplayListOutput("Attendance pulled sucessfully");
-
-            }
-            catch (Exception ex)
-            {
-                DisplayListOutput(ex.Message);
             }
         }
     }

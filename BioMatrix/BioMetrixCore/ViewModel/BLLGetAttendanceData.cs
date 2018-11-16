@@ -62,7 +62,7 @@ namespace BioMetrixCore.ViewModel
             return dt;
         }
 
-        public int UpdateLogData(int personId,DateTime outTime)
+        public int UpdateLogData(int personId,string outTime)
         {
             string sql = "update [LogData] set OutTime=@b where PersonID=@a";
             SqlParameter[] param = new SqlParameter[]
