@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using BioMetrixCore.ViewModel;
 using System.Linq;
 using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace BioMetrixCore
 {
@@ -374,10 +376,22 @@ namespace BioMetrixCore
             //List<UserInfo> lstUserInfo = new List<UserInfo>();
             //manipulator.UploadFTPTemplate(objZkeeper, int.Parse(tbxMachineNumber.Text.Trim()), lstUserInfo);
         }
-
+        public static AppSettingsReader aps = new AppSettingsReader();
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+            //transaction
+            //using (SqlConnection connection1 = new SqlConnection(aps.GetValue("myconnection", typeof(string)).ToString())
+            //{
+            //    connection1.Open();
+
+            //    // Start a local transaction.
+            //    SqlTransaction sqlTran = connection1.BeginTransaction();
+
+            //    // Enlist a command in the current transaction.
+            //    SqlCommand command = connection1.CreateCommand();
+            //    command.Transaction = sqlTran;                
+            //    {
+                try
             {
                 Connect();
 
@@ -389,28 +403,69 @@ namespace BioMetrixCore
 
                 BLLGetAttendanceData bllGetAttendanceData = new BLLGetAttendanceData();
                 DataTable dt = bllGetAttendanceData.GetLastAttendanceLogPull();
-                
-             
-                if(dt.Rows.Count>0)
+
+                DateTime LastPulledDateTime;
+                DateTime LastPulledDateOnly;
+                var todaysDateTime = DateTime.Now;
+                if (dt.Rows.Count > 0)
                 {
-                    DateTime LastPulledDateTime = Convert.ToDateTime(dt.Rows[0]["LastPulledDateTime"]);
-                    DateTime LastPulledDateOnly = Convert.ToDateTime(Convert.ToDateTime(dt.Rows[0]["LastPulledDateTime"]).ToShortDateString());
-                    var newAttendanceRecords=lstMachineInfo.Where(x => Convert.ToDateTime(x.DateTimeRecord) >= LastPulledDateTime).ToList();
+                    LastPulledDateTime = Convert.ToDateTime(dt.Rows[0]["LastPulledDateTime"]);
+                    LastPulledDateOnly = Convert.ToDateTime(Convert.ToDateTime(dt.Rows[0]["LastPulledDateTime"]).ToShortDateString());
+                }
+                else
+                {
+                    LastPulledDateTime = Convert.ToDateTime(lstMachineInfo.Where(x => Convert.ToDateTime(x.DateTimeRecord) < DateTime.Now).OrderBy(x => x.DateTimeRecord).FirstOrDefault().DateTimeRecord);
+                    LastPulledDateOnly = Convert.ToDateTime(LastPulledDateTime.ToShortDateString());
+                }
 
-                    var todaysDateTime = DateTime.Now;
+                var newAttendanceRecords = lstMachineInfo.Where(x => Convert.ToDateTime(x.DateTimeRecord) >= LastPulledDateTime).ToList();
 
-                    int daysGap = Convert.ToInt32((todaysDateTime - LastPulledDateTime).TotalDays);
 
-                    DataTable allUsers = bllGetAttendanceData.GetAllUser();
 
-                    for (int i = 0; i <= daysGap; i++) {
-                        var DaywiseAttendanceRecords = newAttendanceRecords.Where(x => Convert.ToDateTime(x.DateOnlyRecord) == LastPulledDateOnly.AddDays(i));
+                int daysGap = Convert.ToInt32((todaysDateTime - LastPulledDateTime).TotalDays);
 
-                  if(DaywiseAttendanceRecords.Count()>0 && allUsers.Rows.Count>0)
+                DataTable allUsers = bllGetAttendanceData.GetAllUser();
+
+                for (int i = 0; i <= daysGap; i++)
+                {
+                    var DaywiseAttendanceRecords = newAttendanceRecords.Where(x => Convert.ToDateTime(x.DateOnlyRecord) == LastPulledDateOnly.AddDays(i));
+
+                    if (DaywiseAttendanceRecords.Count() > 0 && allUsers.Rows.Count > 0)
+                    {
+                        for (int j = 0; j < allUsers.Rows.Count; j++)
                         {
-                            for (int j = 0; j < allUsers.Rows.Count; j++)
+                            int personId = Convert.ToInt32(allUsers.Rows[j]["PersonID"]);
+                            if (i == 0)
                             {
-                                int personId = Convert.ToInt32(allUsers.Rows[j]["PersonID"]);
+                                DataTable logData = bllGetAttendanceData.GetPersonLogDataByDate(personId, LastPulledDateOnly);
+                                if (logData.Rows.Count > 0)
+                                {
+                                    var UserwiseLastAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).LastOrDefault();
+                                    if (UserwiseLastAttendancerecords != null)
+                                    {
+                                        int val = bllGetAttendanceData.UpdateLogData(personId, UserwiseLastAttendancerecords.TimeOnlyRecord);
+                                    }
+                                }
+                                else
+                                {
+                                    //insert
+                                    var UserwiseFirstAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).FirstOrDefault();
+                                    var UserwiseLastAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).LastOrDefault();
+                                    if (UserwiseFirstAttendancerecords != null && UserwiseLastAttendancerecords != null)
+                                    {
+                                        DeviceRecord dr = new DeviceRecord();
+                                        dr.PersonalId = personId;
+                                        dr.AttendanceDate = UserwiseFirstAttendancerecords.DateOnlyRecord;
+                                        dr.AttendanceDateTime = Convert.ToDateTime(UserwiseFirstAttendancerecords.DateTimeRecord);
+                                        dr.InTime = UserwiseFirstAttendancerecords.TimeOnlyRecord;
+                                        dr.OutTime = UserwiseLastAttendancerecords.TimeOnlyRecord;
+
+                                        int a = bllGetAttendanceData.Insert(dr);
+                                    }
+                                }
+                            }
+                            else
+                            {
                                 var UserwiseFirstAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).FirstOrDefault();
                                 var UserwiseLastAttendancerecords = DaywiseAttendanceRecords.Where(x => x.IndRegID == personId).LastOrDefault();
                                 if (UserwiseFirstAttendancerecords != null && UserwiseLastAttendancerecords != null)
@@ -427,18 +482,14 @@ namespace BioMetrixCore
                             }
                         }
                     }
-                    int b = bllGetAttendanceData.InsertLatestPullRecord();
-                    DisplayListOutput("Attendance pulled sucessfully");
-                    //int hks = 0;
                 }
-                else
-                {
-                    DisplayListOutput("No previous pull record!!!");
-                }
+                int b = bllGetAttendanceData.InsertLatestPullRecord(todaysDateTime);
+                DisplayListOutput("Attendance pulled sucessfully");
+
             }
             catch (Exception ex)
             {
-                 DisplayListOutput(ex.Message);
+                DisplayListOutput(ex.Message);
             }
         }
     }
