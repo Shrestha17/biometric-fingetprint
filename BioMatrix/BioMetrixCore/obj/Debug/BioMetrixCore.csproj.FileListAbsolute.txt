@@ -47,7 +47,6 @@ E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\biometric-fingetprint\BioMatrix
 E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\biometric-fingetprint\BioMatrix\BioMetrixCore\bin\Debug\EntityFramework.SqlServer.dll
 E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\biometric-fingetprint\BioMatrix\BioMetrixCore\bin\Debug\EntityFramework.xml
 E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\biometric-fingetprint\BioMatrix\BioMetrixCore\bin\Debug\EntityFramework.SqlServer.xml
-E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\biometric-fingetprint\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csprojAssemblyReference.cache
 E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\biometric-fingetprint\BioMatrix\BioMetrixCore\obj\Debug\Interop.zkemkeeper.dll
 E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\biometric-fingetprint\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.ResolveComReference.cache
 E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\biometric-fingetprint\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
@@ -58,3 +57,4 @@ E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\biometric-fingetprint\BioMatrix
 E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\biometric-fingetprint\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csproj.CopyComplete
 E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\biometric-fingetprint\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.exe
 E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\biometric-fingetprint\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.pdb
+E:\AMSoft\AMSOFT Project\AMS_PM_Attendance\trunk\biometric-fingetprint\BioMatrix\BioMetrixCore\obj\Debug\BioMetrixCore.csprojAssemblyReference.cache

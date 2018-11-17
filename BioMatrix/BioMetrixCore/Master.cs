@@ -54,7 +54,7 @@ namespace BioMetrixCore
             btnEnableDevice.Enabled = value;
             btnDisableDevice.Enabled = value;
             btnGetAllUserID.Enabled = value;
-            btnUploadUserInfo.Enabled = value;
+            //btnUploadUserInfo.Enabled = value;
             tbxMachineNumber.Enabled = !value;
             tbxPort.Enabled = !value;
             tbxDeviceIP.Enabled = !value;
@@ -377,6 +377,7 @@ namespace BioMetrixCore
             //manipulator.UploadFTPTemplate(objZkeeper, int.Parse(tbxMachineNumber.Text.Trim()), lstUserInfo);
         }
         public static AppSettingsReader aps = new AppSettingsReader();
+        BLLGetAttendanceData bllGetAttendanceData = new BLLGetAttendanceData();
         private void button1_Click(object sender, EventArgs e)
         {
             //transaction
@@ -402,7 +403,7 @@ namespace BioMetrixCore
 
                         List<MachineInfo> lstMachineInfo = machineInfoCollection.ToList();
 
-                        BLLGetAttendanceData bllGetAttendanceData = new BLLGetAttendanceData();
+                       
                         DataTable dt = bllGetAttendanceData.GetLastAttendanceLogPull();
 
                         DateTime LastPulledDateTime;
@@ -495,6 +496,41 @@ namespace BioMetrixCore
                         DisplayListOutput(ex.Message);
                     }
                 }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ShowStatusBar(string.Empty, true);
+                Connect();
+                ICollection<UserInfo> lstFingerPrintTemplates = manipulator.GetAllUserInfo(objZkeeper, int.Parse(tbxMachineNumber.Text.Trim()));
+                if (lstFingerPrintTemplates != null && lstFingerPrintTemplates.Count > 0)
+                {
+                    int val=0;
+                    bllGetAttendanceData.TruncateUserTable();
+                    foreach (var item in lstFingerPrintTemplates)
+                    {
+                         val = bllGetAttendanceData.InsertUser(Convert.ToInt32(item.EnrollNumber), item.Name);
+                    }
+
+                    //BindToGridView(lstFingerPrintTemplates);
+                    if (val == 1)
+                    {
+                        ShowStatusBar(lstFingerPrintTemplates.Count + " records found and saved to database!!", true);
+                    }
+                    else
+                    {
+                        ShowStatusBar("Unable to fetch records",false);
+                    }
+                }
+                else
+                    DisplayListOutput("No records found");
+            }
+            catch (Exception ex)
+            {
+                DisplayListOutput(ex.Message);
             }
         }
     }

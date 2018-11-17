@@ -38,6 +38,27 @@ namespace BioMetrixCore.ViewModel
             return i;
         }
 
+        public void TruncateUserTable()
+        {
+            string sql = "Truncate table [User]";
+
+            int j = DAO.IUD(sql);
+        }
+
+        public int InsertUser(int personID,string userName)
+        {    
+
+            string sql = "insert into [User] values(@a,@b)";
+            SqlParameter[] param = new SqlParameter[]
+            {
+               new SqlParameter("@a",personID),
+                 new SqlParameter("@b",userName)
+            };
+
+            int i = DAO.IUD(sql, param);
+            return i;
+        }
+
         public DataTable GetLastAttendanceLogPull()
         {
             DataTable dt = DAO.GetTable("Select Top 1 * from LatestPullRecord Order By LatestPullRecordID DESC", null);

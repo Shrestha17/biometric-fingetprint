@@ -22,7 +22,7 @@ namespace BioMetrixCore.ViewModel
             return con;
         }
 
-        public static int IUD(string sql, SqlParameter[] param)
+        public static int IUD(string sql, SqlParameter[] param=null)
         {
             using (SqlConnection con = GetConnection())
             {
